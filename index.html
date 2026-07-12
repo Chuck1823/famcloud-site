@@ -7,97 +7,98 @@
   <meta name="description" content="A private AI assistant for your household. Own your hardware. Own your data.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #FAF9F6; color: #1a1a1a; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-    a { color: #E85D04; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #0C0C0C; color: #f5f5f5; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: #FF8C00; }
     .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
     /* NAV */
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #E5E0D8; }
-    .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; color: #E85D04; }
-    .logo span { color: #888; font-weight: 400; }
-    nav a { font-size: 0.9rem; color: #666; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #1a1a1a; }
+    .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; }
+    .logo span { background: linear-gradient(90deg, #FF6B35, #FFD166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .logo .labs { -webkit-text-fill-color: #666; font-weight: 400; font-size: 0.85rem; margin-left: 4px; }
+    nav a { font-size: 0.9rem; color: #888; }
 
     /* HERO */
-    .hero { padding: 90px 0 60px; text-align: center; }
-    .badge { display: inline-block; padding: 5px 14px; border-radius: 200px; font-size: 0.8rem; font-weight: 600; background: #E85D04; color: #fff; margin-bottom: 24px; }
+    .hero { padding: 90px 0 70px; text-align: center; position: relative; }
+    .hero::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(255, 140, 0, 0.12) 0%, transparent 70%); pointer-events: none; }
+    .badge { display: inline-block; padding: 5px 14px; border-radius: 200px; font-size: 0.8rem; font-weight: 600; background: linear-gradient(90deg, #FF6B35, #FFD166); color: #0a0a0a; margin-bottom: 24px; }
     .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; max-width: 700px; margin: 0 auto; }
-    .hero h1 span { color: #E85D04; }
-    .hero p { color: #666; font-size: 1.15rem; max-width: 480px; margin: 16px auto 12px; }
-    .hero .sub { font-size: 1.05rem; color: #333; font-weight: 500; }
-    .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: #E85D04; color: #fff; text-decoration: none; }
-    .btn:hover { background: #D45203; color: #fff; }
-    .btn-outline { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 500; font-size: 1rem; border: 1px solid #ccc; color: #111; text-decoration: none; }
-    .btn-outline:hover { border-color: #888; }
+    .hero h1 span { background: linear-gradient(90deg, #FF6B35, #FFD166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { color: #999; font-size: 1.15rem; max-width: 480px; margin: 16px auto 28px; }
+    .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: linear-gradient(90deg, #FF6B35, #FF8C00); color: #0a0a0a; text-decoration: none; }
+    .btn:hover { background: linear-gradient(90deg, #FF8C00, #FFB347); }
+    .btn-outline { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 500; font-size: 1rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
+    .btn-outline:hover { border-color: #666; }
 
     /* COLOR BAR */
-    .color-bar { height: 4px; background: linear-gradient(90deg, #E85D04, #FFBA08, #006D77, #9B2226, #005F73); }
+    .color-bar { height: 3px; background: linear-gradient(90deg, #FF6B35, #FFD166, #06D6A0, #118AB2, #EF476F); }
 
     /* SECTIONS */
+    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px; background: linear-gradient(90deg, #FF6B35, #FFD166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 32px; }
+
+    /* EXAMPLES */
     .examples { padding: 60px 0 60px; }
-    .examples h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
-    .examples .subtitle { color: #888; font-size: 0.95rem; margin-bottom: 32px; }
     .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .example { background: #fff; border: 1px solid #E5E0D8; border-radius: 8px; padding: 20px; border-left: 3px solid #E85D04; }
-    .example:nth-child(1) { border-left-color: #E85D04; }
-    .example:nth-child(2) { border-left-color: #006D77; }
-    .example:nth-child(3) { border-left-color: #9B2226; }
-    .example:nth-child(4) { border-left-color: #005F73; }
-    .example:nth-child(5) { border-left-color: #DC2F02; }
-    .example:nth-child(6) { border-left-color: #006D77; }
-    .example .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; font-weight: 600; margin-bottom: 6px; }
+    .example { background: #141414; border: 1px solid #222; border-radius: 8px; padding: 20px; }
+    .example:nth-child(1) { border-left: 3px solid #FF6B35; }
+    .example:nth-child(2) { border-left: 3px solid #06D6A0; }
+    .example:nth-child(3) { border-left: 3px solid #118AB2; }
+    .example:nth-child(4) { border-left: 3px solid #EF476F; }
+    .example:nth-child(5) { border-left: 3px solid #FFD166; }
+    .example:nth-child(6) { border-left: 3px solid #48BFE3; }
     .example h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
-    .example .before { color: #999; font-size: 0.88rem; text-decoration: line-through; opacity: 0.65; }
-    .example .after { color: #111; font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
+    .example .before { color: #666; font-size: 0.88rem; text-decoration: line-through; opacity: 0.7; }
+    .example .after { color: #f5f5f5; font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
+    .example .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #888; font-weight: 600; margin-bottom: 6px; }
 
+    /* FEATURES */
     .features { padding: 40px 0 50px; }
-    .features h2 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: #999; font-weight: 600; margin-bottom: 16px; }
     .feature-list { display: flex; flex-wrap: wrap; gap: 10px 18px; }
-    .feature-item { font-size: 0.92rem; color: #444; padding: 6px 14px; border-radius: 200px; background: #fff; border: 1px solid #E5E0D8; }
-    .feature-item:nth-child(1) { border-color: #E85D04; color: #E85D04; }
-    .feature-item:nth-child(2) { border-color: #006D77; color: #006D77; }
-    .feature-item:nth-child(3) { border-color: #9B2226; color: #9B2226; }
-    .feature-item:nth-child(4) { border-color: #005F73; color: #005F73; }
-    .feature-item:nth-child(5) { border-color: #DC2F02; color: #DC2F02; }
-    .feature-item:nth-child(6) { border-color: #E85D04; color: #E85D04; }
-    .feature-item:nth-child(7) { border-color: #006D77; color: #006D77; }
+    .feature-item { font-size: 0.9rem; color: #ccc; padding: 6px 14px; border-radius: 200px; background: #1a1a1a; border: 1px solid #2a2a2a; }
+    .feature-item:nth-child(1) { border-color: #FF6B35; color: #FF8C00; }
+    .feature-item:nth-child(2) { border-color: #06D6A0; color: #06D6A0; }
+    .feature-item:nth-child(3) { border-color: #118AB2; color: #118AB2; }
+    .feature-item:nth-child(4) { border-color: #EF476F; color: #EF476F; }
+    .feature-item:nth-child(5) { border-color: #FFD166; color: #FFD166; }
+    .feature-item:nth-child(6) { border-color: #48BFE3; color: #48BFE3; }
+    .feature-item:nth-child(7) { border-color: #FF6B35; color: #FF8C00; }
 
+    /* HOW IT WORKS */
     .how { padding: 50px 0 60px; }
-    .how h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 32px; }
     .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .how-step .num { font-size: 0.8rem; font-weight: 700; color: #E85D04; margin-bottom: 6px; }
-    .how-step h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
-    .how-step p { color: #777; font-size: 0.88rem; }
+    .how-step .num { font-size: 0.8rem; font-weight: 600; color: #FF6B35; margin-bottom: 6px; }
+    .how-step h3 { font-weight: 600; margin-bottom: 6px; }
+    .how-step p { color: #888; font-size: 0.9rem; }
 
     /* PRICING */
-    .pricing { padding: 50px 0 60px; }
-    .pricing h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+    .pricing { padding: 50px 0 70px; }
     .pricing .subtitle { color: #888; font-size: 0.95rem; margin-bottom: 28px; }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .pricing-card { background: #fff; border: 1px solid #E5E0D8; border-radius: 8px; padding: 24px; position: relative; }
-    .pricing-card.highlight { border-color: #E85D04; box-shadow: 0 2px 12px rgba(232, 93, 4, 0.15); }
-    .pricing-card .tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: #999; font-weight: 600; margin-bottom: 4px; }
-    .pricing-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 4px; }
-    .pricing-card .price { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin: 8px 0; color: #E85D04; }
+    .pricing-card { background: #141414; border: 1px solid #222; border-radius: 8px; padding: 24px; }
+    .pricing-card.highlight { border-color: #FF8C00; box-shadow: 0 2px 16px rgba(255, 140, 0, 0.15); }
+    .pricing-card .tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: #888; font-weight: 600; margin-bottom: 4px; }
+    .pricing-card h3 { font-weight: 700; margin-bottom: 4px; }
+    .pricing-card .price { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin: 8px 0; color: #FF8C00; }
     .pricing-card .price small { font-size: 0.85rem; font-weight: 400; color: #888; }
     .pricing-card .setup { font-size: 0.82rem; color: #888; margin-bottom: 16px; }
     .pricing-card ul { list-style: none; padding: 0; }
-    .pricing-card li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #f0ede8; color: #555; }
+    .pricing-card li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #1e1e1e; color: #aaa; }
     .pricing-card li:last-child { border: none; }
-    .pricing-card .btn-sm { display: block; text-align: center; margin-top: 16px; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; background: #E85D04; color: #fff; text-decoration: none; }
-    .pricing-card .btn-sm:hover { background: #D45203; }
-    .pricing-card .btn-sm-outline { display: block; text-align: center; margin-top: 16px; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; border: 1px solid #ccc; color: #111; text-decoration: none; }
-    .pricing-card .btn-sm-outline:hover { border-color: #888; }
+    .pricing-card .btn-sm { display: block; text-align: center; margin-top: 16px; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; background: linear-gradient(90deg, #FF6B35, #FF8C00); color: #0a0a0a; text-decoration: none; }
+    .pricing-card .btn-sm-outline { display: block; text-align: center; margin-top: 16px; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
+    .pricing-card .btn-sm-outline:hover { border-color: #666; }
 
     /* CTA */
     .bottom-cta { padding: 50px 0 60px; }
-    .cta-box { background: #1a1a1a; border-radius: 10px; padding: 48px 32px; text-align: center; }
-    .cta-box h2 { color: #fff; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
-    .cta-box h2 span { color: #FFBA08; }
-    .cta-box p { color: #999; font-size: 0.95rem; margin-bottom: 24px; }
-    .cta-box .btn-white { display: inline-block; padding: 12px 28px; border-radius: 6px; background: #FFBA08; color: #1a1a1a; font-weight: 700; font-size: 1rem; text-decoration: none; }
-    .cta-box .btn-white:hover { background: #E5A808; }
+    .cta-box { background: linear-gradient(135deg, #141414 0%, #1a1510 100%); border: 1px solid #222; border-radius: 10px; padding: 48px 32px; text-align: center; }
+    .cta-box h2 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .cta-box h2 span { background: linear-gradient(90deg, #FF6B35, #FFD166); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-box p { color: #888; font-size: 0.95rem; margin-bottom: 24px; }
+    .cta-box .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: linear-gradient(90deg, #FF6B35, #FFD166); color: #0a0a0a; text-decoration: none; }
 
-    footer { border-top: 1px solid #E5E0D8; padding: 24px; text-align: center; font-size: 0.82rem; color: #999; }
+    /* FOOTER */
+    footer { border-top: 1px solid #1a1a1a; padding: 24px; text-align: center; font-size: 0.82rem; color: #666; }
 
     @media (max-width: 768px) {
       .example-grid, .pricing-grid, .how-grid { grid-template-columns: 1fr; }
@@ -106,7 +107,7 @@
 </head>
 <body>
   <nav>
-    <div class="logo">FamCloud <span>Labs</span></div>
+    <div class="logo"><span>FamCloud</span><span class="labs">Labs</span></div>
     <a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a>
   </nav>
   <div class="color-bar"></div>
@@ -116,17 +117,16 @@
     <div class="badge">Early Access</div>
     <h1>Your AI lives at home,<br><span>not on their servers.</span></h1>
     <p>The most valuable data in the next decade will be your interactions with AI. You should own them.</p>
-    <p class="sub">A private AI assistant for your family — on a device you own, in your home.</p>
-    <div style="margin-top: 28px; display: flex; gap: 12px; justify-content: center;">
-      <a href="mailto:hello@famcloud.ai" class="btn">Contact Us</a>
+    <div style="display: flex; gap: 12px; justify-content: center;">
+      <a href="mailto:hello@famcloud.ai" class="btn">Get Early Access</a>
       <a href="#pricing" class="btn-outline">See Pricing</a>
     </div>
   </section>
 
   <!-- EXAMPLES -->
   <section class="examples container">
-    <h2>What it actually does</h2>
-    <p class="subtitle">Real family problems. Real solutions.</p>
+    <div class="section-label">See It in Action</div>
+    <h3 class="section-title">What does FamCloud actually do?</h3>
     <div class="example-grid">
       <div class="example">
         <div class="label">School</div>
@@ -169,7 +169,7 @@
 
   <!-- FEATURES -->
   <section class="features container">
-    <h2>What you get</h2>
+    <div class="section-label">What You Get</div>
     <div class="feature-list">
       <div class="feature-item">Your hardware, your data</div>
       <div class="feature-item">WhatsApp, Telegram, voice, email</div>
@@ -183,7 +183,7 @@
 
   <!-- HOW IT WORKS -->
   <section class="how container">
-    <h2>How it works</h2>
+    <div class="section-label">How It Works</div>
     <div class="how-grid">
       <div class="how-step">
         <div class="num">Step 1</div>
@@ -205,12 +205,12 @@
 
   <!-- PRICING -->
   <section class="pricing container" id="pricing">
-    <h2>Pricing</h2>
-    <p class="subtitle">One subscription covers the whole family. No per-person charges.</p>
+    <div class="section-label">Pricing</div>
+    <h3 class="section-title">One subscription covers the whole family. No per-person charges.</h3>
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="tag">Free</div>
-        <h3>Try it</h3>
+        <h3>Try It</h3>
         <div class="price">$0</div>
         <div class="setup">50 messages/mo included</div>
         <ul>
@@ -287,15 +287,13 @@
     <div class="cta-box">
       <h2>Less cloud. <span>More yours.</span></h2>
       <p>Say hi — we'd love to hear from you.</p>
-      <a href="mailto:hello@famcloud.ai" class="btn-white">hello@famcloud.ai</a>
+      <a href="mailto:hello@famcloud.ai" class="btn">hello@famcloud.ai</a>
     </div>
   </section>
 
   <footer>
-    <div class="container">
-      <p>&copy; 2026 FamCloud Labs. All rights reserved.</p>
-      <p><a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a></p>
-    </div>
+    <div class="container"><p>© 2026 FamCloud Labs. All rights reserved.</p>
+    <p><a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a></p></div>
   </footer>
 </body>
 </html>
