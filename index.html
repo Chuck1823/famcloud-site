@@ -3,183 +3,380 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FamCloud — AI That Lives in Your Home</title>
+  <title>FamCloud Labs — Your AI Lives at Home</title>
+  <meta name="description" content="A private AI assistant for your household. Own your hardware. Own your data.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
-      font-family: -apple-system, 'Segoe UI', sans-serif;
-      background: #0a0a0a;
-      color: #f5f5f5;
+      font-family: 'Inter Tight', -apple-system, sans-serif;
+      background: #090909;
+      color: #f0f0f0;
       line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
-    a { color: #f97316; text-decoration: none; }
-    a:hover { color: #fb923c; }
+    a { color: #FF9F1C; text-decoration: none; transition: color 0.2s; }
+    a:hover { color: #FF9F1C; }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    /* ---- utility ---- */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 28px;
+    }
 
-    /* NAV */
+    /* ---- NAV ---- */
     nav {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 0; border-bottom: 1px solid #222;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 28px;
+      position: sticky;
+      top: 0;
+      background: rgba(9,9,9,0.85);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #191919;
+      z-index: 10;
     }
-    .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
-    .logo span { color: #f97316; }
-    .tagline { font-size: 0.875rem; color: #888; }
+    .logo-wrap h1 {
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+    .logo-wrap .labs {
+      color: #555;
+      font-weight: 600;
+      font-size: 0.9rem;
+      vertical-align: 2px;
+      margin-left: 4px;
+    }
+    .nav-email {
+      color: #888;
+      font-size: 0.95rem;
+    }
+    .nav-email:hover { color: #FF9F1C; }
 
-    /* HERO */
+    /* ---- HERO ---- */
+    .hero-wrap {
+      background: radial-gradient(
+        100% 100% at 50% 0%,
+        rgba(255, 160, 30, 0.08) 0%,
+        transparent 50%
+      );
+    }
     .hero {
-      text-align: center; padding: 80px 0 60px;
+      padding: 100px 0 80px;
+      text-align: center;
     }
-    .hero h1 {
-      font-size: clamp(2rem, 6vw, 3.5rem);
-      font-weight: 800; line-height: 1.15;
-      letter-spacing: -1px; margin-bottom: 16px;
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 200px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #FF9F1C;
+      border: 1px solid rgba(255, 160, 30, 0.25);
+      background: rgba(255, 160, 30, 0.12);
+      margin-bottom: 24px;
     }
-    .hero h1 span { color: #f97316; }
+    .hero h2 {
+      font-size: clamp(2.8rem, 8vw, 4.5rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 1.08;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .hero h2 .accent { color: #FF9F1C; }
     .hero p {
-      font-size: 1.2rem; color: #aaa; max-width: 600px; margin: 0 auto 32px;
+      color: #999;
+      font-size: 1.15rem;
+      max-width: 520px;
+      margin: 16px auto 32px;
     }
     .cta-btn {
       display: inline-block;
-      padding: 14px 32px; border-radius: 8px;
-      background: #f97316; color: #fff; font-weight: 600;
-      font-size: 1.05rem; transition: background 0.2s;
+      padding: 14px 30px;
+      border-radius: 8px;
+      background: #FF9F1C;
+      color: #000;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: background 0.2s;
     }
-    .cta-btn:hover { background: #ea580c; color: #fff; }
+    .cta-btn:hover { background: #e58a10; color: #000; }
 
-    /* FEATURES */
-    .features {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 24px; padding: 40px 0 60px;
+    /* ---- SECTIONS ---- */
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #FF9F1C;
+      font-weight: 600;
+      margin-bottom: 8px;
     }
-    .feature {
-      background: #141414; border: 1px solid #222;
-      border-radius: 12px; padding: 28px;
+    .section-title {
+      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 36px;
     }
-    .feature h3 { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
-    .feature p { font-size: 0.95rem; color: #999; }
 
-    /* PRICING */
-    .pricing { padding: 40px 0; }
-    .pricing h2 { text-align: center; font-size: 1.8rem; margin-bottom: 28px; }
-    .plans {
-      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    /* ---- FEATURES ---- */
+    .features-section { padding: 60px 0 80px; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 20px;
     }
-    .plan {
-      background: #141414; border: 1px solid #222;
-      border-radius: 12px; padding: 28px; text-align: center;
+    .feature-card {
+      background: #101010;
+      border: 1px solid #1a1a1a;
+      border-radius: 12px;
+      padding: 28px;
     }
-    .plan h3 { font-size: 1.15rem; margin-bottom: 4px; }
-    .plan .price { font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
-    .plan .price small { font-size: 0.9rem; color: #888; font-weight: 400; }
-    .plan .setup { font-size: 0.85rem; color: #666; margin-bottom: 16px; }
-    .plan ul { list-style: none; text-align: left; padding: 0; }
-    .plan li {
-      font-size: 0.9rem; padding: 6px 0;
-      border-bottom: 1px solid #1a1a1a; color: #bbb;
+    .feature-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 8px;
     }
-    .plan li::before { content: "✓ "; color: #f97316; }
+    .feature-card p {
+      color: #999;
+      font-size: 0.95rem;
+    }
 
-    /* FOOTER */
+    /* ---- COMPARISON ---- */
+    .comparison-section {
+      padding: 60px 0 80px;
+    }
+    .comparison-wrap {
+      background: #0c0c0c;
+      border: 1px solid #181818;
+      border-radius: 16px;
+      padding: 48px 32px;
+    }
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .comparison-col h4 {
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 16px;
+    }
+    .comparison-col.them h4 { color: #666; }
+    .comparison-col.us h4 { color: #FF9F1C; }
+    .comparison-col ul {
+      list-style: none;
+      padding: 0;
+    }
+    .comparison-col li {
+      padding: 12px 0;
+      border-bottom: 1px solid #181818;
+      font-size: 0.95rem;
+    }
+    .comparison-col li:last-child { border-bottom: none; }
+    .comparison-col.them li { color: #888; }
+    .comparison-col.them li::before { content: "✗ "; color: #666; }
+    .comparison-col.us li { color: #ccc; }
+    .comparison-col.us li::before { content: "✓ "; color: #FF9F1C; }
+
+    /* ---- HOW IT WORKS ---- */
+    .how-section { padding: 60px 0; }
+    .how-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .how-step {
+      text-align: center;
+      padding: 24px 16px;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #1a1a1a;
+      color: #FF9F1C;
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .how-step h3 {
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .how-step p {
+      color: #999;
+      font-size: 0.95rem;
+    }
+
+    /* ---- BOTTOM CTA ---- */
+    .bottom-cta {
+      text-align: center;
+      padding: 80px 0 60px;
+    }
+    .bottom-cta h2 {
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -1px;
+      margin-bottom: 12px;
+    }
+    .bottom-cta h2 .accent { color: #FF9F1C; }
+    .bottom-cta p {
+      color: #999;
+      font-size: 1.05rem;
+      margin-bottom: 28px;
+    }
+
+    /* ---- FOOTER ---- */
     footer {
-      text-align: center; padding: 40px 0 24px;
-      border-top: 1px solid #222; margin-top: 20px;
-      font-size: 0.85rem; color: #555;
+      border-top: 1px solid #181818;
+      padding: 32px 28px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: #555;
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 768px) {
+      .features-grid,
+      .how-grid {
+        grid-template-columns: 1fr;
+      }
+      .comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <nav>
-      <div>
-        <div class="logo">Fam<span>C</span>loud</div>
-        <div class="tagline">AI that lives in your home</div>
-      </div>
-      <a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a>
-    </nav>
+
+  <!-- NAV -->
+  <nav>
+    <div class="logo-wrap">
+      <h1>FamCloud <span class="labs">Labs</span></h1>
+    </div>
+    <a href="mailto:hello@famcloud.ai" class="nav-email">hello@famcloud.ai</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero-wrap">
+    <section class="hero container">
+      <span class="badge">Early Access</span>
+      <h2>Your AI should live<br><span class="accent">in your home.</span></h2>
+      <p>A private AI assistant that runs on a device in your home. No cloud. No message caps. No one else ever sees your data.</p>
+      <a href="mailto:hello@famcloud.ai" class="cta-btn">Get Early Access</a>
+    </section>
   </div>
 
-  <section class="hero">
-    <div class="container">
-      <h1>Your AI.<br>Your hardware.<br><span>Your data.</span></h1>
-      <p>FamCloud is a privacy-first AI assistant that runs on a small device in your home. Every message, every memory, every inference — all local, never leaving your house.</p>
-      <a href="mailto:hello@famcloud.ai" class="cta-btn">Get Early Access</a>
-    </div>
-  </section>
-
-  <section class="container">
-    <div class="features">
-      <div class="feature">
-        <h3>🔒 Fully Private</h3>
-        <p>All data stays on your hardware. No cloud, no servers, no third-party access.</p>
+  <!-- FEATURES -->
+  <section class="features-section container">
+    <div class="section-label">Why FamCloud</div>
+    <h3 class="section-title">Built different. Built local.</h3>
+    <div class="features-grid">
+      <div class="feature-card">
+        <h3>🔒 Own Your Data</h3>
+        <p>Every message, every memory, every inference — stays on your hardware. Period.</p>
       </div>
-      <div class="feature">
+      <div class="feature-card">
         <h3>💬 Every Channel</h3>
-        <p>Text, WhatsApp, Telegram, voice, email — your agent is where you are.</p>
+        <p>Text, WhatsApp, Telegram, voice calls — your family's agent is everywhere you are.</p>
       </div>
-      <div class="feature">
-        <h3>🧠 Shared Memory</h3>
-        <p>Profiles for each family member, with shared and private memory spaces.</p>
+      <div class="feature-card">
+        <h3>🧠 Family Memory</h3>
+        <p>Profiles for each person with shared and private memory spaces. It learns your household.</p>
       </div>
-      <div class="feature">
+      <div class="feature-card">
         <h3>🛡️ Parental Controls</h3>
-        <p>Age filters, approval workflows, and time windows for kids' accounts.</p>
+        <p>Age filters, approval workflows, time windows. Built for families with kids.</p>
       </div>
-      <div class="feature">
-        <h3>⚡ Self-Healing</h3>
-        <p>Automatic recovery from crashes, updates, and model rollbacks.</p>
+      <div class="feature-card">
+        <h3>∞ No Message Caps</h3>
+        <p>Use it as much as you want. No per-month limits. No tiered message quotas.</p>
       </div>
-      <div class="feature">
+      <div class="feature-card">
         <h3>📦 Plug & Play</h3>
-        <p>Connect, set up in minutes via your browser. No technical know-how needed.</p>
+        <p>Pre-configured, ships ready to go. Plug it in, open your browser, connect your accounts.</p>
       </div>
     </div>
   </section>
 
-  <section class="pricing container">
-    <h2>Simple Pricing</h2>
-    <div class="plans">
-      <div class="plan">
-        <h3>FamCloud</h3>
-        <div class="price">$49<small>/mo</small></div>
-        <div class="setup">$500 one-time setup</div>
-        <ul>
-          <li>1 messaging channel</li>
-          <li>Basic memory</li>
-          <li>2 family members</li>
-        </ul>
-      </div>
-      <div class="plan">
-        <h3>FamCloud Family</h3>
-        <div class="price">$99<small>/mo</small></div>
-        <div class="setup">$800 one-time setup</div>
-        <ul>
-          <li>3 messaging channels</li>
-          <li>Extended memory</li>
-          <li>4 family members</li>
-          <li>Parental controls</li>
-        </ul>
-      </div>
-      <div class="plan">
-        <h3>FamCloud Premium</h3>
-        <div class="price">$149<small>/mo</small></div>
-        <div class="setup">$800 one-time setup</div>
-        <ul>
-          <li>ALL channels</li>
-          <li>Unlimited memory</li>
-          <li>Unlimited family members</li>
-          <li>Voice calls, priority support</li>
-        </ul>
+  <!-- COMPARISON -->
+  <section class="comparison-section container">
+    <div class="comparison-wrap">
+      <div class="section-label">The Difference</div>
+      <div class="comparison-grid">
+        <div class="comparison-col them">
+          <h4>Cloud Assistants</h4>
+          <ul>
+            <li>Your data lives on their servers</li>
+            <li>Capped messages per month</li>
+            <li>They can read everything your family says</li>
+            <li>Subscription only — you own nothing</li>
+            <li>Dependent on their uptime & policies</li>
+          </ul>
+        </div>
+        <div class="comparison-col us">
+          <h4>FamCloud Labs</h4>
+          <ul>
+            <li>Your data lives on your hardware</li>
+            <li>Unlimited use, no caps ever</li>
+            <li>Nothing leaves your home</li>
+            <li>Own your device, pay for support</li>
+            <li>Self-healing — it recovers itself</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- HOW IT WORKS -->
+  <section class="how-section container">
+    <div class="section-label">How It Works</div>
+    <h3 class="section-title">Three steps</h3>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="step-num">1</div>
+        <h3>Get Your Rig</h3>
+        <p>A compact, pre-configured AI device with GPU. Ships ready to plug in.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">2</div>
+        <h3>Connect Channels</h3>
+        <p>Scan a QR for WhatsApp, link Telegram, authorize email. Five minutes.</p>
+      </div>
+      <div class="how-step">
+        <div class="step-num">3</div>
+        <h3>Use It Forever</h3>
+        <p>Message your agent from anywhere. It learns, remembers, and stays private.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta container">
+    <h2>Less cloud. <span class="accent">More yours.</span></h2>
+    <p>Be first to know when we launch.</p>
+    <a href="mailto:hello@famcloud.ai" class="cta-btn">hello@famcloud.ai</a>
+  </section>
+
+  <!-- FOOTER -->
   <footer>
     <div class="container">
-      <p>© 2026 FamCloud, Inc. All rights reserved.</p>
+      <p>© 2026 FamCloud Labs. All rights reserved.</p>
       <p><a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a></p>
     </div>
   </footer>
+
 </body>
 </html>
