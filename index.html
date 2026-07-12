@@ -11,14 +11,12 @@
     a { color: #5EEAD4; }
     .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
 
-    /* NAV */
     nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #1e1e24; }
     .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; }
     .logo span { background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .logo .labs { -webkit-text-fill-color: #555; font-weight: 400; font-size: 0.85rem; margin-left: 4px; }
     nav a { font-size: 0.9rem; color: #666; }
 
-    /* HERO */
     .hero { padding: 90px 0 70px; text-align: center; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(94, 234, 212, 0.10) 0%, rgba(167, 139, 250, 0.05) 40%, transparent 70%); pointer-events: none; }
     .hero::after { content: ''; position: absolute; bottom: -100px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(94, 234, 212, 0.06) 0%, transparent 70%); pointer-events: none; }
@@ -29,16 +27,13 @@
     .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
     .btn:hover { background: linear-gradient(90deg, #2DD4BF, #8B5CF6); }
     .btn-outline { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 500; font-size: 1rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
-    .btn-outline:hover { border-color: #666; }
+    .btn-outline:hover { border-color: #555; }
 
-    /* COLOR BAR */
     .color-bar { height: 3px; background: linear-gradient(90deg, #5EEAD4, #A78BFA, #60A5FA, #F472B6); }
 
-    /* SECTIONS */
     .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px; background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 32px; }
 
-    /* EXAMPLES */
     .examples { padding: 60px 0 60px; }
     .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .example { background: #151519; border: 1px solid #222228; border-radius: 8px; padding: 20px; }
@@ -53,7 +48,6 @@
     .example .after { color: #f0f0f0; font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
     .example .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666; font-weight: 600; margin-bottom: 6px; }
 
-    /* FEATURES */
     .features { padding: 40px 0 50px; }
     .feature-list { display: flex; flex-wrap: wrap; gap: 10px 18px; }
     .feature-item { font-size: 0.9rem; color: #bbb; padding: 6px 14px; border-radius: 200px; background: #151519; border: 1px solid #222228; }
@@ -65,14 +59,24 @@
     .feature-item:nth-child(6) { border-color: #34D399; color: #34D399; }
     .feature-item:nth-child(7) { border-color: #5EEAD4; color: #5EEAD4; }
 
-    /* HOW IT WORKS */
     .how { padding: 50px 0 60px; }
     .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .how-step .num { font-size: 0.8rem; font-weight: 600; color: #5EEAD4; margin-bottom: 6px; }
     .how-step h3 { font-weight: 600; margin-bottom: 6px; }
     .how-step p { color: #666; font-size: 0.9rem; }
 
-    /* PRICING */
+    /* DATA ASSET BANNER */
+    .data-asset { padding: 50px 0 60px; }
+    .data-asset-box { background: linear-gradient(135deg, #151519 0%, #141923 100%); border: 1px solid #222228; border-radius: 12px; padding: 40px 36px; position: relative; overflow: hidden; }
+    .data-asset-box::before { content: ''; position: absolute; top: -80px; right: -80px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(94, 234, 212, 0.06) 0%, transparent 70%); pointer-events: none; }
+    .data-asset-box .section-label { margin-bottom: 12px; }
+    .data-asset-box h3 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .data-asset-box h3 span { color: #5EEAD4; }
+    .data-asset-box p { color: #888; font-size: 1rem; line-height: 1.6; max-width: 600px; margin-bottom: 20px; }
+    .data-asset-box ul { list-style: none; padding: 0; }
+    .data-asset-box li { color: #999; font-size: 0.9rem; padding: 4px 0; }
+    .data-asset-box li::before { content: "◆ "; color: #5EEAD4; font-size: 0.7rem; }
+
     .pricing { padding: 50px 0 70px; }
     .pricing .subtitle { color: #888; font-size: 0.95rem; margin-bottom: 28px; }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -90,7 +94,6 @@
     .pricing-card .btn-sm-outline { display: block; text-align: center; margin-top: 16px; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
     .pricing-card .btn-sm-outline:hover { border-color: #555; }
 
-    /* CTA */
     .bottom-cta { padding: 50px 0 60px; }
     .cta-box { background: #151519; border: 1px solid #222228; border-radius: 10px; padding: 48px 32px; text-align: center; }
     .cta-box h2 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
@@ -98,7 +101,6 @@
     .cta-box p { color: #666; font-size: 0.95rem; margin-bottom: 24px; }
     .cta-box .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
 
-    /* FOOTER */
     footer { border-top: 1px solid #1e1e24; padding: 24px; text-align: center; font-size: 0.82rem; color: #444; }
 
     @media (max-width: 768px) {
@@ -113,7 +115,6 @@
   </nav>
   <div class="color-bar"></div>
 
-  <!-- HERO -->
   <section class="hero container">
     <div class="badge">Early Access</div>
     <h1>Your AI lives at home,<br><span>not on their servers.</span></h1>
@@ -124,7 +125,6 @@
     </div>
   </section>
 
-  <!-- EXAMPLES -->
   <section class="examples container">
     <div class="section-label">See It in Action</div>
     <h3 class="section-title">What does FamCloud actually do?</h3>
@@ -168,7 +168,6 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section class="features container">
     <div class="section-label">What You Get</div>
     <div class="feature-list">
@@ -182,7 +181,6 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section class="how container">
     <div class="section-label">How It Works</div>
     <div class="how-grid">
@@ -204,7 +202,22 @@
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- DATA ASSET SECTION -->
+  <section class="data-asset container">
+    <div class="data-asset-box">
+      <div class="section-label">Your Data Is An Asset</div>
+      <h3>Your AI interactions are worth <span>real money.</span></h3>
+      <p>AI companies pay billions for training data. Right now, they scrape the open web and call it a day. But real, high-quality family conversations — the kind that actually make AI smarter — are the most valuable data on the planet.</p>
+      <p>With FamCloud, every interaction your family has makes the AI better — and it all stays on your device. <strong style="color:#C4DCE8">Someday, when the demand is right, you'll be able to opt in and sell your household's anonymized data to AI companies. You own it. You get paid.</strong></p>
+      <ul>
+        <li>Your data is an asset that grows in value over time</li>
+        <li>Opt-in only — you choose when and if to sell</li>
+        <li>FamCloud handles anonymization, licensing, and payouts</li>
+        <li>The more you use it, the more your data is worth</li>
+      </ul>
+    </div>
+  </section>
+
   <section class="pricing container" id="pricing">
     <div class="section-label">Pricing</div>
     <h3 class="section-title">One subscription covers the whole family. No per-person charges.</h3>
@@ -283,7 +296,6 @@
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="bottom-cta container">
     <div class="cta-box">
       <h2>Private AI for your <span>whole family.</span></h2>
