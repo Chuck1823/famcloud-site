@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FamCloud — AI That Lives in Your Home</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, 'Segoe UI', sans-serif;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+    a { color: #f97316; text-decoration: none; }
+    a:hover { color: #fb923c; }
+
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+
+    /* NAV */
+    nav {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 20px 0; border-bottom: 1px solid #222;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; }
+    .logo span { color: #f97316; }
+    .tagline { font-size: 0.875rem; color: #888; }
+
+    /* HERO */
+    .hero {
+      text-align: center; padding: 80px 0 60px;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-weight: 800; line-height: 1.15;
+      letter-spacing: -1px; margin-bottom: 16px;
+    }
+    .hero h1 span { color: #f97316; }
+    .hero p {
+      font-size: 1.2rem; color: #aaa; max-width: 600px; margin: 0 auto 32px;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: 14px 32px; border-radius: 8px;
+      background: #f97316; color: #fff; font-weight: 600;
+      font-size: 1.05rem; transition: background 0.2s;
+    }
+    .cta-btn:hover { background: #ea580c; color: #fff; }
+
+    /* FEATURES */
+    .features {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 24px; padding: 40px 0 60px;
+    }
+    .feature {
+      background: #141414; border: 1px solid #222;
+      border-radius: 12px; padding: 28px;
+    }
+    .feature h3 { font-size: 1.1rem; margin-bottom: 8px; color: #fff; }
+    .feature p { font-size: 0.95rem; color: #999; }
+
+    /* PRICING */
+    .pricing { padding: 40px 0; }
+    .pricing h2 { text-align: center; font-size: 1.8rem; margin-bottom: 28px; }
+    .plans {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .plan {
+      background: #141414; border: 1px solid #222;
+      border-radius: 12px; padding: 28px; text-align: center;
+    }
+    .plan h3 { font-size: 1.15rem; margin-bottom: 4px; }
+    .plan .price { font-size: 2rem; font-weight: 700; margin-bottom: 12px; }
+    .plan .price small { font-size: 0.9rem; color: #888; font-weight: 400; }
+    .plan .setup { font-size: 0.85rem; color: #666; margin-bottom: 16px; }
+    .plan ul { list-style: none; text-align: left; padding: 0; }
+    .plan li {
+      font-size: 0.9rem; padding: 6px 0;
+      border-bottom: 1px solid #1a1a1a; color: #bbb;
+    }
+    .plan li::before { content: "✓ "; color: #f97316; }
+
+    /* FOOTER */
+    footer {
+      text-align: center; padding: 40px 0 24px;
+      border-top: 1px solid #222; margin-top: 20px;
+      font-size: 0.85rem; color: #555;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <div>
+        <div class="logo">Fam<span>C</span>loud</div>
+        <div class="tagline">AI that lives in your home</div>
+      </div>
+      <a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a>
+    </nav>
+  </div>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Your AI.<br>Your hardware.<br><span>Your data.</span></h1>
+      <p>FamCloud is a privacy-first AI assistant that runs on a small device in your home. Every message, every memory, every inference — all local, never leaving your house.</p>
+      <a href="mailto:hello@famcloud.ai" class="cta-btn">Get Early Access</a>
+    </div>
+  </section>
+
+  <section class="container">
+    <div class="features">
+      <div class="feature">
+        <h3>🔒 Fully Private</h3>
+        <p>All data stays on your hardware. No cloud, no servers, no third-party access.</p>
+      </div>
+      <div class="feature">
+        <h3>💬 Every Channel</h3>
+        <p>Text, WhatsApp, Telegram, voice, email — your agent is where you are.</p>
+      </div>
+      <div class="feature">
+        <h3>🧠 Shared Memory</h3>
+        <p>Profiles for each family member, with shared and private memory spaces.</p>
+      </div>
+      <div class="feature">
+        <h3>🛡️ Parental Controls</h3>
+        <p>Age filters, approval workflows, and time windows for kids' accounts.</p>
+      </div>
+      <div class="feature">
+        <h3>⚡ Self-Healing</h3>
+        <p>Automatic recovery from crashes, updates, and model rollbacks.</p>
+      </div>
+      <div class="feature">
+        <h3>📦 Plug & Play</h3>
+        <p>Connect, set up in minutes via your browser. No technical know-how needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing container">
+    <h2>Simple Pricing</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>FamCloud</h3>
+        <div class="price">$49<small>/mo</small></div>
+        <div class="setup">$500 one-time setup</div>
+        <ul>
+          <li>1 messaging channel</li>
+          <li>Basic memory</li>
+          <li>2 family members</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>FamCloud Family</h3>
+        <div class="price">$99<small>/mo</small></div>
+        <div class="setup">$800 one-time setup</div>
+        <ul>
+          <li>3 messaging channels</li>
+          <li>Extended memory</li>
+          <li>4 family members</li>
+          <li>Parental controls</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <h3>FamCloud Premium</h3>
+        <div class="price">$149<small>/mo</small></div>
+        <div class="setup">$800 one-time setup</div>
+        <ul>
+          <li>ALL channels</li>
+          <li>Unlimited memory</li>
+          <li>Unlimited family members</li>
+          <li>Voice calls, priority support</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 FamCloud, Inc. All rights reserved.</p>
+      <p><a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a></p>
+    </div>
+  </footer>
+</body>
+</html>
