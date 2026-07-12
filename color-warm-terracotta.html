@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FamCloud Labs — Your AI Lives at Home</title>
+  <meta name="description" content="A private AI assistant for your household. Own your hardware. Own your data.">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #1A120E; color: #f0e8e0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: #E88043; text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; }
+    .logo { display: flex; align-items: center; gap: 4px; }
+    .logo-text { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; background: linear-gradient(135deg, #E88043, #F2A85C, #E88043); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .logo .labs { font-weight: 400; font-size: 0.85rem; color: #555; }
+    nav .nav-email { font-size: 0.9rem; color: #888; }
+    .hero { padding: 100px 0 70px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px 5px 6px; border-radius: 200px; font-size: 0.78rem; font-weight: 600; background: rgba(232,128,67,0.08); border: 1px solid rgba(232,128,67,0.2); color: #E88043; margin-bottom: 20px; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #E88043; box-shadow: 0 0 8px rgba(232,128,67,0.12); }
+    .hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.2rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; max-width: 640px; margin: 0 auto; }
+    .hero h1 em { font-style: normal; color: #888; }
+    .hero h1 .accent { background: linear-gradient(135deg, #E88043, #F2A85C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { color: #777; font-size: 1.05rem; max-width: 440px; margin: 16px auto 24px; }
+    .btn { display: inline-block; padding: 11px 26px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; background: linear-gradient(135deg, #E88043, #F2A85C); color: #1A120E; }
+    .btn:hover { background: linear-gradient(135deg, #D5692F, #E8993F); }
+    .btn-o { display: inline-block; padding: 11px 26px; border-radius: 6px; font-weight: 500; font-size: 0.95rem; border: 1px solid rgba(232,128,67,0.2); color: #E88043; }
+    .btn-o:hover { background: rgba(232,128,67,0.08); }
+    .section-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 6px; }
+    .section-label.blue { color: #E88043; }
+    .section-label.purple { color: #F2A85C; }
+    .section-title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 24px; }
+    .section-heading { font-size: 0.85rem; color: #888; margin-bottom: 20px; }
+    .examples { padding: 50px 0 40px; }
+    .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .example { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 18px; transition: border-color 0.2s; }
+    .example:hover { border-color: rgba(232,128,67,0.2); }
+    .example .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #555; font-weight: 600; margin-bottom: 6px; }
+    .example h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+    .example .before { color: #555; font-size: 0.84rem; text-decoration: line-through; opacity: 0.6; }
+    .example .after { color: #f0e8e0; font-size: 0.84rem; margin-top: 4px; font-weight: 500; }
+    .features { padding: 30px 0 20px; }
+    .feature-list { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+    .feature-item { font-size: 0.85rem; color: #888; padding: 5px 12px; border-radius: 4px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); }
+    .how { padding: 40px 0 30px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .how-step .num { font-size: 0.75rem; font-weight: 700; color: #E88043; margin-bottom: 6px; }
+    .how-step h3 { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+    .how-step p { color: #888; font-size: 0.88rem; }
+    .data-asset { padding: 40px 0; }
+    .data-asset-box { background: rgba(232,128,67,0.08); border: 1px solid rgba(232,128,67,0.08); border-radius: 10px; padding: 32px; }
+    .data-asset-box h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px; }
+    .data-asset-box h3 .accent { background: linear-gradient(135deg, #E88043, #F2A85C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .data-asset-box p { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px; }
+    .data-asset-box ul { list-style: none; padding: 0; }
+    .data-asset-box li { color: #888; font-size: 0.88rem; padding: 3px 0; }
+    .data-asset-box li::before { content: "◆ "; color: #E88043; font-size: 0.6rem; }
+    .pricing { padding: 40px 0 60px; border-top: 1px solid rgba(255,255,255,0.06); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .pricing-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 22px; }
+    .pricing-card.highlight { border-color: rgba(232,128,67,0.3); box-shadow: 0 2px 20px rgba(232,128,67,0.15); position: relative; }
+    .pricing-card.highlight::before { content: 'Popular'; position: absolute; top: -9px; right: 16px; padding: 2px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; background: linear-gradient(135deg, #E88043, #F2A85C); color: #1A120E; }
+    .pricing-card .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #888; font-weight: 600; margin-bottom: 4px; }
+    .pricing-card h3 { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+    .pricing-card .price { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin: 6px 0 2px; color: #E88043; }
+    .pricing-card .price small { font-size: 0.85rem; font-weight: 400; color: #888; }
+    .pricing-card .setup { font-size: 0.8rem; color: #888; margin-bottom: 8px; }
+    .pricing-card .payback { font-size: 0.72rem; color: #F2A85C; padding: 3px 8px; background: rgba(232,128,67,0.08); border-radius: 3px; margin-bottom: 10px; display: inline-block; }
+    .pricing-card ul { list-style: none; padding: 0; }
+    .pricing-card li { font-size: 0.84rem; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.06); color: #999; }
+    .pricing-card li:last-child { border: none; }
+    .pricing-card .btn-sm { display: block; text-align: center; margin-top: 12px; padding: 9px 18px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #E88043, #F2A85C); color: #1A120E; }
+    .pricing-card .btn-sm-o { display: block; text-align: center; margin-top: 12px; padding: 9px 18px; border-radius: 6px; font-weight: 500; font-size: 0.85rem; border: 1px solid rgba(232,128,67,0.2); color: #E88043; }
+    .bottom-cta { padding: 40px 0 50px; }
+    .cta-box { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 40px 28px; text-align: center; }
+    .cta-box h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 6px; }
+    .cta-box h2 .accent { background: linear-gradient(135deg, #E88043, #F2A85C); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-box p { color: #888; font-size: 0.9rem; margin-bottom: 18px; }
+    footer { border-top: 1px solid rgba(255,255,255,0.06); padding: 20px 24px; text-align: center; font-size: 0.8rem; color: #555; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
+    @media (max-width: 768px) { .example-grid, .pricing-grid, .how-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <nav class="container">
+    <div class="logo">
+      <span class="logo-text">FamCloud</span>
+      <span class="labs">Labs</span>
+    </div>
+    <a class="nav-email" href="mailto:hello@famcloud.ai">hello@famcloud.ai</a>
+  </nav>
+
+  <section class="hero container">
+    <div class="badge"><span class="badge-dot"></span>Early Access</div>
+    <h1>Your AI lives at home,<br><em>not on their <span class="accent">servers</span></em></h1>
+    <p>The most valuable data in the next decade will be your interactions with AI. You should own them.</p>
+    <div class="row" style="justify-content:center">
+      <a href="mailto:hello@famcloud.ai" class="btn">Get Early Access</a>
+      <a href="#pricing" class="btn-o">See Pricing</a>
+    </div>
+  </section>
+
+  <section class="examples container">
+    <div class="section-label blue">See It in Action</div>
+    <div class="section-title">What does FamCloud actually do?</div>
+    <div class="example-grid">
+      <div class="example">
+        <div class="label">School</div>
+        <h3>Never miss a permission slip</h3>
+        <div class="before">Three slips lost. Two missed parent-teacher meetings.</div>
+        <div class="after">Agent catches every deadline from school emails and texts the right parent.</div>
+      </div>
+      <div class="example">
+        <div class="label">Scheduling</div>
+        <h3>Who's taking who where</h3>
+        <div class="before">Soccer at 4, dental at 4:30 — nobody knows who is where.</div>
+        <div class="after">Agent sees all calendars, spots conflicts, suggests who does what.</div>
+      </div>
+      <div class="example">
+        <div class="label">Coordination</div>
+        <h3>Coordinate with other parents</h3>
+        <div class="before">Group chat back and forth just to find a time.</div>
+        <div class="after">You tell the agent to set up a playdate. It handles the rest.</div>
+      </div>
+      <div class="example">
+        <div class="label">Safety</div>
+        <h3>Kids asking questions</h3>
+        <div class="before">Kid texts the agent something that isn't age-appropriate.</div>
+        <div class="after">Filters catch it, block the query, and notify you.</div>
+      </div>
+      <div class="example">
+        <div class="label">Context</div>
+        <h3>"What did the doctor say?"</h3>
+        <div class="before">Nobody remembers the pediatrician's instructions from last visit.</div>
+        <div class="after">Agent has every conversation logged — answers are right there.</div>
+      </div>
+      <div class="example">
+        <div class="label">Privacy</div>
+        <h3>Your data stays yours</h3>
+        <div class="before">Cloud AI companies reading your family's conversations to train models.</div>
+        <div class="after">Zero data leaves your device. Not for training. Not for anyone.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features container">
+    <div class="section-label purple">What You Get</div>
+    <div class="feature-list">
+      <div class="feature-item">Your hardware, your data</div>
+      <div class="feature-item">WhatsApp, Telegram, voice, email</div>
+      <div class="feature-item">No message caps</div>
+      <div class="feature-item">Parental controls</div>
+      <div class="feature-item">Shared & private profiles</div>
+      <div class="feature-item">Self-healing software</div>
+      <div class="feature-item">Whole family, one subscription</div>
+    </div>
+  </section>
+
+  <section class="how container">
+    <div class="section-label blue">How It Works</div>
+    <div class="how-grid">
+      <div class="how-step">
+        <div class="num">Step 1</div>
+        <h3>Get your device</h3>
+        <p>Pre-configured. Plug it in, connect to Wi-Fi, open the setup page.</p>
+      </div>
+      <div class="how-step">
+        <div class="num">Step 2</div>
+        <h3>Connect accounts</h3>
+        <p>Scan a QR for WhatsApp, link Telegram, authorize email. Five minutes.</p>
+      </div>
+      <div class="how-step">
+        <div class="num">Step 3</div>
+        <h3>Use it together</h3>
+        <p>Your agent learns your household. Set up profiles for each family member.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="data-asset container">
+    <div class="data-asset-box">
+      <div class="section-label">Your Data Is An Asset</div>
+      <h3>Participate in the <span class="accent">AI economy.</span></h3>
+      <p>AI companies pay billions for training data. But real family conversations — the kind that actually make AI smarter — can't be scraped from the web.</p>
+      <p>Everything your family does with FamCloud stays on your device. When you're ready, opt in and participate: sell anonymized conversational data to the companies building AI models. You own it. You get paid.</p>
+      <ul>
+        <li>80% of net profits from data sales go to your household</li>
+        <li>Opt-in only — you decide when and what to share</li>
+        <li>We handle anonymization, licensing, and payouts</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="pricing container" id="pricing">
+    <div class="section-label blue">Pricing</div>
+    <div class="section-title">One subscription for the whole family.</div>
+    <div class="pricing-grid">
+      <div class="pricing-card">
+        <div class="tag">Free</div>
+        <h3>Try It</h3>
+        <div class="price">$0</div>
+        <div class="setup">50 messages/mo included</div>
+        <ul>
+          <li>1 channel (Telegram bot)</li>
+          <li>Basic memory (7 days)</li>
+          <li>2 family members</li>
+          <li>Basic parental controls</li>
+        </ul>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm-o">Start Free</a>
+      </div>
+      <div class="pricing-card">
+        <div class="tag">Basic</div>
+        <h3>Basic</h3>
+        <div class="price">$30<small>/mo</small></div>
+        <div class="setup">$100 one-time setup</div>
+        <div class="payback">~11 mo to pay back hardware</div>
+        <ul>
+          <li>iMessage, WhatsApp, Telegram</li>
+          <li>Local memory + search</li>
+          <li>4 family members</li>
+          <li>Self-serve onboarding</li>
+        </ul>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm-o">Get Started</a>
+      </div>
+      <div class="pricing-card highlight">
+        <div class="tag">Pro</div>
+        <h3>Pro</h3>
+        <div class="price">$50<small>/mo</small></div>
+        <div class="setup">$150 one-time setup</div>
+        <div class="payback">~5 mo to pay back hardware</div>
+        <ul>
+          <li>Everything in Basic</li>
+          <li>Voice assistant (Pipecat)</li>
+          <li>Google Calendar, Gmail, Drive</li>
+          <li>Email assistant</li>
+          <li>Homework help mode</li>
+          <li>Standard support</li>
+        </ul>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm">Get Started</a>
+      </div>
+    </div>
+    <div class="pricing-grid" style="margin-top: 12px; grid-template-columns: repeat(2, 1fr); max-width: 620px;">
+      <div class="pricing-card">
+        <div class="tag">Premium</div>
+        <h3>Premium</h3>
+        <div class="price">$75<small>/mo</small></div>
+        <div class="setup">$275 one-time setup</div>
+        <div class="payback">~2 mo to pay back hardware</div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>Priority support (live, 24hr)</li>
+          <li>Model personalized from your data</li>
+          <li>Multi-device voice</li>
+          <li>Advanced family analytics</li>
+        </ul>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm">Get Started</a>
+      </div>
+      <div class="pricing-card">
+        <div class="tag">Lease</div>
+        <h3>Lease</h3>
+        <div class="price">$65<small>/mo</small></div>
+        <div class="setup">$0 upfront</div>
+        <div class="payback">$0 to start — we own the hardware</div>
+        <ul>
+          <li>Everything in Pro</li>
+          <li>We own the hardware</li>
+          <li>12-month minimum, then return or buy out</li>
+          <li>Zero risk</li>
+        </ul>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm-o">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="bottom-cta container">
+    <div class="cta-box">
+      <h2>Private AI for your <span class="accent">whole family.</span></h2>
+      <p>Say hi — we'd love to hear from you.</p>
+      <a href="mailto:hello@famcloud.ai" class="btn">hello@famcloud.ai</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container"><p>© 2026 FamCloud Labs. All rights reserved.</p></div>
+  </footer>
+</body>
+</html>
