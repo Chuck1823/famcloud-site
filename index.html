@@ -10,30 +10,24 @@
     body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #0E0E10; color: #f0f0f0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
     a { color: #5EEAD4; }
     .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-
     nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #1e1e24; }
     .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; }
     .logo span { background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .logo .labs { -webkit-text-fill-color: #555; font-weight: 400; font-size: 0.85rem; margin-left: 4px; }
     nav a { font-size: 0.9rem; color: #666; }
-
     .hero { padding: 90px 0 70px; text-align: center; position: relative; overflow: hidden; }
     .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(94, 234, 212, 0.10) 0%, rgba(167, 139, 250, 0.05) 40%, transparent 70%); pointer-events: none; }
-    .hero::after { content: ''; position: absolute; bottom: -100px; right: -200px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(94, 234, 212, 0.06) 0%, transparent 70%); pointer-events: none; }
     .badge { display: inline-block; padding: 5px 14px; border-radius: 200px; font-size: 0.8rem; font-weight: 600; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; margin-bottom: 24px; }
     .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; max-width: 700px; margin: 0 auto; }
     .hero h1 span { background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero p { color: #888; font-size: 1.15rem; max-width: 480px; margin: 16px auto 28px; }
+    .hero p { color: #888; font-size: 1.1rem; max-width: 480px; margin: 16px auto 28px; }
     .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
     .btn:hover { background: linear-gradient(90deg, #2DD4BF, #8B5CF6); }
     .btn-outline { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 500; font-size: 1rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
     .btn-outline:hover { border-color: #555; }
-
     .color-bar { height: 3px; background: linear-gradient(90deg, #5EEAD4, #A78BFA, #60A5FA, #F472B6); }
-
     .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px; background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
     .section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 32px; }
-
     .examples { padding: 60px 0 60px; }
     .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
     .example { background: #151519; border: 1px solid #222228; border-radius: 8px; padding: 20px; }
@@ -44,10 +38,9 @@
     .example:nth-child(5) { border-left: 3px solid #FBBF24; }
     .example:nth-child(6) { border-left: 3px solid #34D399; }
     .example h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
-    .example .before { color: #555; font-size: 0.88rem; text-decoration: line-through; opacity: 0.7; }
-    .example .after { color: #f0f0f0; font-size: 0.88rem; font-weight: 500; margin-top: 4px; }
+    .example .before { color: #555; font-size: 0.86rem; text-decoration: line-through; opacity: 0.7; }
+    .example .after { color: #f0f0f0; font-size: 0.86rem; font-weight: 500; margin-top: 4px; }
     .example .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666; font-weight: 600; margin-bottom: 6px; }
-
     .features { padding: 40px 0 50px; }
     .feature-list { display: flex; flex-wrap: wrap; gap: 10px 18px; }
     .feature-item { font-size: 0.9rem; color: #bbb; padding: 6px 14px; border-radius: 200px; background: #151519; border: 1px solid #222228; }
@@ -58,25 +51,20 @@
     .feature-item:nth-child(5) { border-color: #FBBF24; color: #FBBF24; }
     .feature-item:nth-child(6) { border-color: #34D399; color: #34D399; }
     .feature-item:nth-child(7) { border-color: #5EEAD4; color: #5EEAD4; }
-
     .how { padding: 50px 0 60px; }
     .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
     .how-step .num { font-size: 0.8rem; font-weight: 600; color: #5EEAD4; margin-bottom: 6px; }
     .how-step h3 { font-weight: 600; margin-bottom: 6px; }
     .how-step p { color: #666; font-size: 0.9rem; }
-
-    /* DATA ASSET BANNER */
     .data-asset { padding: 50px 0 60px; }
-    .data-asset-box { background: linear-gradient(135deg, #151519 0%, #141923 100%); border: 1px solid #222228; border-radius: 12px; padding: 40px 36px; position: relative; overflow: hidden; }
-    .data-asset-box::before { content: ''; position: absolute; top: -80px; right: -80px; width: 250px; height: 250px; background: radial-gradient(circle, rgba(94, 234, 212, 0.06) 0%, transparent 70%); pointer-events: none; }
-    .data-asset-box .section-label { margin-bottom: 12px; }
-    .data-asset-box h3 { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 12px; }
+    .data-asset-box { background: #151519; border: 1px solid #222228; border-radius: 12px; padding: 36px; }
+    .data-asset-box .section-label { margin-bottom: 10px; }
+    .data-asset-box h3 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 10px; }
     .data-asset-box h3 span { color: #5EEAD4; }
-    .data-asset-box p { color: #888; font-size: 1rem; line-height: 1.6; max-width: 600px; margin-bottom: 20px; }
+    .data-asset-box p { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 14px; }
     .data-asset-box ul { list-style: none; padding: 0; }
-    .data-asset-box li { color: #999; font-size: 0.9rem; padding: 4px 0; }
-    .data-asset-box li::before { content: "◆ "; color: #5EEAD4; font-size: 0.7rem; }
-
+    .data-asset-box li { color: #999; font-size: 0.88rem; padding: 3px 0; }
+    .data-asset-box li::before { content: "◆ "; color: #5EEAD4; font-size: 0.65rem; }
     .pricing { padding: 50px 0 70px; }
     .pricing .subtitle { color: #888; font-size: 0.95rem; margin-bottom: 28px; }
     .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
@@ -86,26 +74,19 @@
     .pricing-card h3 { font-weight: 700; margin-bottom: 4px; }
     .pricing-card .price { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin: 8px 0; color: #5EEAD4; }
     .pricing-card .price small { font-size: 0.85rem; font-weight: 400; color: #666; }
-    .pricing-card .setup { font-size: 0.82rem; color: #666; margin-bottom: 16px; }
+    .pricing-card .setup { font-size: 0.82rem; color: #666; margin-bottom: 14px; }
     .pricing-card ul { list-style: none; padding: 0; }
     .pricing-card li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #1e1e24; color: #999; }
     .pricing-card li:last-child { border: none; }
-    .pricing-card .btn-sm { display: block; text-align: center; margin-top: 16px; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
-    .pricing-card .btn-sm-outline { display: block; text-align: center; margin-top: 16px; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
-    .pricing-card .btn-sm-outline:hover { border-color: #555; }
-
+    .pricing-card .btn-sm { display: block; text-align: center; margin-top: 14px; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
+    .pricing-card .btn-sm-outline { display: block; text-align: center; margin-top: 14px; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
     .bottom-cta { padding: 50px 0 60px; }
     .cta-box { background: #151519; border: 1px solid #222228; border-radius: 10px; padding: 48px 32px; text-align: center; }
-    .cta-box h2 { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 10px; }
+    .cta-box h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
     .cta-box h2 span { background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .cta-box p { color: #666; font-size: 0.95rem; margin-bottom: 24px; }
-    .cta-box .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
-
+    .cta-box p { color: #666; font-size: 0.95rem; margin-bottom: 20px; }
     footer { border-top: 1px solid #1e1e24; padding: 24px; text-align: center; font-size: 0.82rem; color: #444; }
-
-    @media (max-width: 768px) {
-      .example-grid, .pricing-grid, .how-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 768px) { .example-grid, .pricing-grid, .how-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -115,6 +96,7 @@
   </nav>
   <div class="color-bar"></div>
 
+  <!-- HERO -->
   <section class="hero container">
     <div class="badge">Early Access</div>
     <h1>Your AI lives at home,<br><span>not on their servers.</span></h1>
@@ -125,49 +107,51 @@
     </div>
   </section>
 
+  <!-- EXAMPLES -->
   <section class="examples container">
     <div class="section-label">See It in Action</div>
     <h3 class="section-title">What does FamCloud actually do?</h3>
     <div class="example-grid">
       <div class="example">
         <div class="label">School</div>
-        <h3>Never miss a permission slip again</h3>
-        <div class="before">Three permission slips lost. Two missed parent-teacher nights last month.</div>
+        <h3>Never miss a permission slip</h3>
+        <div class="before">Three slips lost. Two missed parent-teacher meetings.</div>
         <div class="after">Agent catches every deadline from school emails and texts the right parent.</div>
       </div>
       <div class="example">
         <div class="label">Scheduling</div>
         <h3>Who's taking who where</h3>
-        <div class="before">Soccer at 4, dental at 4:30, piano at 5 — nobody knows who is where.</div>
-        <div class="after">Agent sees all calendars, spots conflicts, and suggests who does what.</div>
+        <div class="before">Soccer at 4, dental at 4:30 — nobody knows who is where.</div>
+        <div class="after">Agent sees all calendars, spots conflicts, suggests who does what.</div>
       </div>
       <div class="example">
         <div class="label">Coordination</div>
         <h3>Coordinate with other parents</h3>
-        <div class="before">Texting back and forth between parents to find a time that works for everyone.</div>
-        <div class="after">You tell the agent to set up a playdate. It coordinates and confirms for you.</div>
+        <div class="before">Group chat back and forth just to find a time.</div>
+        <div class="after">You tell the agent to set up a playdate. It handles the rest.</div>
       </div>
       <div class="example">
         <div class="label">Safety</div>
-        <h3>Kids asking inappropriate questions</h3>
-        <div class="before">Kid texts the family assistant with questions that aren't age-appropriate.</div>
-        <div class="after">Parental filters catch it, block the query, and notify you.</div>
+        <h3>Kids asking questions</h3>
+        <div class="before">Kid texts the agent something that isn't age-appropriate.</div>
+        <div class="after">Filters catch it, block the query, and notify you.</div>
       </div>
       <div class="example">
         <div class="label">Context</div>
-        <h3>"Who's allergic to nuts?"</h3>
-        <div class="before">Frantic texting before every party — who can actually eat what.</div>
-        <div class="after">Agent knows your family — allergies, preferences, routines. Answers just make sense.</div>
+        <h3>"What did the doctor say?"</h3>
+        <div class="before">Nobody remembers the pediatrician's instructions from last visit.</div>
+        <div class="after">Agent has every conversation logged — answers are right there.</div>
       </div>
       <div class="example">
         <div class="label">Privacy</div>
-        <h3>Your conversations stay yours</h3>
-        <div class="before">Cloud AI companies reading your family's conversations to train their models.</div>
-        <div class="after">Zero data leaves your device. No exceptions. Not for training, not for anyone.</div>
+        <h3>Your data stays yours</h3>
+        <div class="before">Cloud AI companies reading your family's conversations to train models.</div>
+        <div class="after">Zero data leaves your device. Not for training. Not for anyone.</div>
       </div>
     </div>
   </section>
 
+  <!-- FEATURES -->
   <section class="features container">
     <div class="section-label">What You Get</div>
     <div class="feature-list">
@@ -181,6 +165,7 @@
     </div>
   </section>
 
+  <!-- HOW IT WORKS -->
   <section class="how container">
     <div class="section-label">How It Works</div>
     <div class="how-grid">
@@ -197,30 +182,30 @@
       <div class="how-step">
         <div class="num">Step 3</div>
         <h3>Use it together</h3>
-        <p>Your agent learns your household. Profiles for each family member.</p>
+        <p>Your agent learns your household. Set up profiles for each family member.</p>
       </div>
     </div>
   </section>
 
-  <!-- DATA ASSET SECTION -->
+  <!-- DATA ASSET -->
   <section class="data-asset container">
     <div class="data-asset-box">
       <div class="section-label">Your Data Is An Asset</div>
-      <h3>Your AI interactions are worth <span>real money.</span></h3>
-      <p>AI companies pay billions for training data. Right now, they scrape the open web and call it a day. But real, high-quality family conversations — the kind that actually make AI smarter — are the most valuable data on the planet.</p>
-      <p>With FamCloud, every interaction your family has makes the AI better — and it all stays on your device. <strong style="color:#C4DCE8">Someday, when the demand is right, you'll be able to opt in and sell your household's anonymized data to AI companies. You own it. You get paid.</strong></p>
+      <h3>Your conversations are worth <span>real money.</span></h3>
+      <p>AI companies pay billions for training data. But real family conversations — the kind that actually make AI smarter — can't be scraped from the web.</p>
+      <p>Everything your family does with FamCloud stays on your device. Someday, opt in to sell anonymized data. You own it. You get paid.</p>
       <ul>
-        <li>Your data is an asset that grows in value over time</li>
-        <li>Opt-in only — you choose when and if to sell</li>
-        <li>FamCloud handles anonymization, licensing, and payouts</li>
-        <li>The more you use it, the more your data is worth</li>
+        <li>Data grows in value over time — the more you use it, the more it's worth</li>
+        <li>Opt-in only — you decide when and what to share</li>
+        <li>We handle anonymization, licensing, and payouts</li>
       </ul>
     </div>
   </section>
 
+  <!-- PRICING -->
   <section class="pricing container" id="pricing">
     <div class="section-label">Pricing</div>
-    <h3 class="section-title">One subscription covers the whole family. No per-person charges.</h3>
+    <h3 class="section-title">One subscription for the whole family.</h3>
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="tag">Free</div>
@@ -241,7 +226,7 @@
         <div class="price">$30<small>/mo</small></div>
         <div class="setup">$100 one-time setup</div>
         <ul>
-          <li>Text channels: iMessage, WhatsApp, Telegram</li>
+          <li>iMessage, WhatsApp, Telegram</li>
           <li>Local memory + search</li>
           <li>4 family members</li>
           <li>Self-serve onboarding</li>
@@ -276,7 +261,6 @@
           <li>Model personalized from your data</li>
           <li>Multi-device voice</li>
           <li>Advanced family analytics</li>
-          <li>Backup + remote health monitoring</li>
         </ul>
         <a href="mailto:hello@famcloud.ai" class="btn-sm">Get Started</a>
       </div>
@@ -289,13 +273,14 @@
           <li>Everything in Pro</li>
           <li>We own the hardware</li>
           <li>12-month minimum, then return or buy out</li>
-          <li>Zero risk — try before you commit</li>
+          <li>Zero risk</li>
         </ul>
         <a href="mailto:hello@famcloud.ai" class="btn-sm-outline">Get Started</a>
       </div>
     </div>
   </section>
 
+  <!-- CTA -->
   <section class="bottom-cta container">
     <div class="cta-box">
       <h2>Private AI for your <span>whole family.</span></h2>
