@@ -7,110 +7,102 @@
   <meta name="description" content="A private AI assistant for your household. Own your hardware. Own your data.">
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #0E0E10; color: #f0f0f0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
-    a { color: #5EEAD4; }
-    .container { max-width: 960px; margin: 0 auto; padding: 0 24px; }
-    nav { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid #1e1e24; }
-    .logo { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; }
-    .logo span { background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .logo .labs { -webkit-text-fill-color: #555; font-weight: 400; font-size: 0.85rem; margin-left: 4px; }
-    nav a { font-size: 0.9rem; color: #666; }
-    .hero { padding: 90px 0 70px; text-align: center; position: relative; overflow: hidden; }
-    .hero::before { content: ''; position: absolute; top: -200px; left: 50%; transform: translateX(-50%); width: 800px; height: 600px; background: radial-gradient(ellipse, rgba(94, 234, 212, 0.10) 0%, rgba(167, 139, 250, 0.05) 40%, transparent 70%); pointer-events: none; }
-    .badge { display: inline-block; padding: 5px 14px; border-radius: 200px; font-size: 0.8rem; font-weight: 600; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; margin-bottom: 24px; }
-    .hero h1 { font-size: clamp(2.4rem, 6vw, 3.6rem); font-weight: 700; letter-spacing: -1.2px; line-height: 1.1; max-width: 700px; margin: 0 auto; }
-    .hero h1 span { background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .hero p { color: #888; font-size: 1.1rem; max-width: 480px; margin: 16px auto 28px; }
-    .btn { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 600; font-size: 1rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
-    .btn:hover { background: linear-gradient(90deg, #2DD4BF, #8B5CF6); }
-    .btn-outline { display: inline-block; padding: 12px 28px; border-radius: 6px; font-weight: 500; font-size: 1rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
-    .btn-outline:hover { border-color: #555; }
-    .color-bar { height: 3px; background: linear-gradient(90deg, #5EEAD4, #A78BFA, #60A5FA, #F472B6); }
-    .section-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; margin-bottom: 8px; background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .section-title { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 32px; }
-    .examples { padding: 60px 0 60px; }
-    .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .example { background: #151519; border: 1px solid #222228; border-radius: 8px; padding: 20px; }
-    .example:nth-child(1) { border-left: 3px solid #5EEAD4; }
-    .example:nth-child(2) { border-left: 3px solid #A78BFA; }
-    .example:nth-child(3) { border-left: 3px solid #60A5FA; }
-    .example:nth-child(4) { border-left: 3px solid #F472B6; }
-    .example:nth-child(5) { border-left: 3px solid #FBBF24; }
-    .example:nth-child(6) { border-left: 3px solid #34D399; }
-    .example h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 6px; }
-    .example .before { color: #555; font-size: 0.86rem; text-decoration: line-through; opacity: 0.7; }
-    .example .after { color: #f0f0f0; font-size: 0.86rem; font-weight: 500; margin-top: 4px; }
-    .example .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666; font-weight: 600; margin-bottom: 6px; }
-    .features { padding: 40px 0 50px; }
-    .feature-list { display: flex; flex-wrap: wrap; gap: 10px 18px; }
-    .feature-item { font-size: 0.9rem; color: #bbb; padding: 6px 14px; border-radius: 200px; background: #151519; border: 1px solid #222228; }
-    .feature-item:nth-child(1) { border-color: #5EEAD4; color: #5EEAD4; }
-    .feature-item:nth-child(2) { border-color: #A78BFA; color: #A78BFA; }
-    .feature-item:nth-child(3) { border-color: #60A5FA; color: #60A5FA; }
-    .feature-item:nth-child(4) { border-color: #F472B6; color: #F472B6; }
-    .feature-item:nth-child(5) { border-color: #FBBF24; color: #FBBF24; }
-    .feature-item:nth-child(6) { border-color: #34D399; color: #34D399; }
-    .feature-item:nth-child(7) { border-color: #5EEAD4; color: #5EEAD4; }
-    .how { padding: 50px 0 60px; }
-    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .how-step .num { font-size: 0.8rem; font-weight: 600; color: #5EEAD4; margin-bottom: 6px; }
-    .how-step h3 { font-weight: 600; margin-bottom: 6px; }
-    .how-step p { color: #666; font-size: 0.9rem; }
-    .data-asset { padding: 50px 0 60px; }
-    .data-asset-box { background: #151519; border: 1px solid #222228; border-radius: 12px; padding: 36px; }
-    .data-asset-box .section-label { margin-bottom: 10px; }
-    .data-asset-box h3 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 10px; }
-    .data-asset-box h3 span { color: #5EEAD4; }
-    .data-asset-box p { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 14px; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif; background: #0B0B0E; color: #f0f0f0; line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    a { color: #A78BFA; text-decoration: none; }
+    .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    nav { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; }
+    .logo { display: flex; align-items: center; gap: 4px; }
+    .logo-text { font-weight: 700; font-size: 1.15rem; letter-spacing: -0.3px; background: linear-gradient(135deg, #3B82F6, #A78BFA, #3B82F6); background-size: 200% 200%; -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .logo .labs { font-weight: 400; font-size: 0.85rem; color: #555; }
+    nav .nav-email { font-size: 0.9rem; color: #666; }
+    .hero { padding: 100px 0 70px; text-align: center; }
+    .badge { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px 5px 6px; border-radius: 200px; font-size: 0.78rem; font-weight: 600; background: rgba(167,139,250,0.1); border: 1px solid rgba(167,139,250,0.2); color: #A78BFA; margin-bottom: 20px; }
+    .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #A78BFA; box-shadow: 0 0 8px rgba(167,139,250,0.6); }
+    .hero h1 { font-size: clamp(2.2rem, 5.5vw, 3.2rem); font-weight: 700; letter-spacing: -1px; line-height: 1.1; max-width: 640px; margin: 0 auto; }
+    .hero h1 em { font-style: normal; color: #888; }
+    .hero h1 .accent { background: linear-gradient(135deg, #3B82F6, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .hero p { color: #777; font-size: 1.05rem; max-width: 440px; margin: 16px auto 24px; }
+    .btn { display: inline-block; padding: 11px 26px; border-radius: 6px; font-weight: 600; font-size: 0.95rem; background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: #fff; }
+    .btn:hover { background: linear-gradient(135deg, #2563EB, #7C3AED); }
+    .btn-o { display: inline-block; padding: 11px 26px; border-radius: 6px; font-weight: 500; font-size: 0.95rem; border: 1px solid rgba(167,139,250,0.25); color: #A78BFA; }
+    .btn-o:hover { background: rgba(167,139,250,0.06); }
+    .section-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600; margin-bottom: 6px; }
+    .section-label.blue { color: #3B82F6; }
+    .section-label.purple { color: #8B5CF6; }
+    .section-title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 24px; }
+    .section-heading { font-size: 0.85rem; color: #666; margin-bottom: 20px; }
+    .examples { padding: 50px 0 40px; }
+    .example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .example { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 18px; transition: border-color 0.2s; }
+    .example:hover { border-color: rgba(167,139,250,0.25); }
+    .example .label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #555; font-weight: 600; margin-bottom: 6px; }
+    .example h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 6px; }
+    .example .before { color: #555; font-size: 0.84rem; text-decoration: line-through; opacity: 0.6; }
+    .example .after { color: #ccc; font-size: 0.84rem; margin-top: 4px; font-weight: 500; }
+    .features { padding: 30px 0 20px; }
+    .feature-list { display: flex; flex-wrap: wrap; gap: 8px 14px; }
+    .feature-item { font-size: 0.85rem; color: #999; padding: 5px 12px; border-radius: 4px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); }
+    .how { padding: 40px 0 30px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .how-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .how-step .num { font-size: 0.75rem; font-weight: 700; color: #3B82F6; margin-bottom: 6px; }
+    .how-step h3 { font-weight: 600; font-size: 1rem; margin-bottom: 4px; }
+    .how-step p { color: #666; font-size: 0.88rem; }
+    .data-asset { padding: 40px 0; }
+    .data-asset-box { background: rgba(167,139,250,0.04); border: 1px solid rgba(167,139,250,0.1); border-radius: 10px; padding: 32px; }
+    .data-asset-box h3 { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 8px; }
+    .data-asset-box h3 .accent { background: linear-gradient(135deg, #3B82F6, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .data-asset-box p { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 12px; }
     .data-asset-box ul { list-style: none; padding: 0; }
     .data-asset-box li { color: #999; font-size: 0.88rem; padding: 3px 0; }
-    .data-asset-box li::before { content: "◆ "; color: #5EEAD4; font-size: 0.65rem; }
-    .pricing { padding: 50px 0 70px; }
-    .pricing .subtitle { color: #888; font-size: 0.95rem; margin-bottom: 28px; }
-    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .pricing-card { background: #151519; border: 1px solid #222228; border-radius: 8px; padding: 24px; }
-    .pricing-card.highlight { border-color: #5EEAD4; box-shadow: 0 2px 16px rgba(94, 234, 212, 0.12); }
-    .pricing-card .tag { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; color: #666; font-weight: 600; margin-bottom: 4px; }
-    .pricing-card h3 { font-weight: 700; margin-bottom: 4px; }
-    .pricing-card .price { font-size: 2rem; font-weight: 700; letter-spacing: -0.5px; margin: 8px 0; color: #5EEAD4; }
+    .data-asset-box li::before { content: "◆ "; color: #A78BFA; font-size: 0.6rem; }
+    .pricing { padding: 40px 0 60px; border-top: 1px solid rgba(255,255,255,0.05); }
+    .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .pricing-card { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 6px; padding: 22px; }
+    .pricing-card.highlight { border-color: rgba(167,139,250,0.3); box-shadow: 0 2px 20px rgba(139,92,246,0.1); position: relative; }
+    .pricing-card.highlight::before { content: 'Popular'; position: absolute; top: -9px; right: 16px; padding: 2px 10px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: #fff; }
+    .pricing-card .tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #666; font-weight: 600; margin-bottom: 4px; }
+    .pricing-card h3 { font-weight: 700; font-size: 0.95rem; margin-bottom: 4px; }
+    .pricing-card .price { font-size: 1.8rem; font-weight: 700; letter-spacing: -0.5px; margin: 6px 0 2px; color: #A78BFA; }
     .pricing-card .price small { font-size: 0.85rem; font-weight: 400; color: #666; }
-    .pricing-card .setup { font-size: 0.82rem; color: #666; margin-bottom: 14px; }
+    .pricing-card .setup { font-size: 0.8rem; color: #666; margin-bottom: 8px; }
+    .pricing-card .payback { font-size: 0.72rem; color: #8B5CF6; padding: 3px 8px; background: rgba(139,92,246,0.08); border-radius: 3px; margin-bottom: 10px; display: inline-block; }
     .pricing-card ul { list-style: none; padding: 0; }
-    .pricing-card li { font-size: 0.85rem; padding: 6px 0; border-bottom: 1px solid #1e1e24; color: #999; }
+    .pricing-card li { font-size: 0.84rem; padding: 5px 0; border-bottom: 1px solid rgba(255,255,255,0.04); color: #999; }
     .pricing-card li:last-child { border: none; }
-    .pricing-card .btn-sm { display: block; text-align: center; margin-top: 14px; padding: 10px 20px; border-radius: 6px; font-weight: 600; font-size: 0.88rem; background: linear-gradient(90deg, #5EEAD4, #A78BFA); color: #0E0E10; text-decoration: none; }
-    .pricing-card .btn-sm-outline { display: block; text-align: center; margin-top: 14px; padding: 10px 20px; border-radius: 6px; font-weight: 500; font-size: 0.88rem; border: 1px solid #333; color: #ccc; text-decoration: none; }
-    .bottom-cta { padding: 50px 0 60px; }
-    .cta-box { background: #151519; border: 1px solid #222228; border-radius: 10px; padding: 48px 32px; text-align: center; }
-    .cta-box h2 { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
-    .cta-box h2 span { background: linear-gradient(90deg, #5EEAD4, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-    .cta-box p { color: #666; font-size: 0.95rem; margin-bottom: 20px; }
-    footer { border-top: 1px solid #1e1e24; padding: 24px; text-align: center; font-size: 0.82rem; color: #444; }
+    .pricing-card .btn-sm { display: block; text-align: center; margin-top: 12px; padding: 9px 18px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; background: linear-gradient(135deg, #3B82F6, #8B5CF6); color: #fff; }
+    .pricing-card .btn-sm-o { display: block; text-align: center; margin-top: 12px; padding: 9px 18px; border-radius: 6px; font-weight: 500; font-size: 0.85rem; border: 1px solid rgba(167,139,250,0.2); color: #A78BFA; }
+    .bottom-cta { padding: 40px 0 50px; }
+    .cta-box { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 40px 28px; text-align: center; }
+    .cta-box h2 { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.4px; margin-bottom: 6px; }
+    .cta-box h2 .accent { background: linear-gradient(135deg, #3B82F6, #A78BFA); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .cta-box p { color: #666; font-size: 0.9rem; margin-bottom: 18px; }
+    footer { border-top: 1px solid rgba(255,255,255,0.05); padding: 20px 24px; text-align: center; font-size: 0.8rem; color: #444; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; }
     @media (max-width: 768px) { .example-grid, .pricing-grid, .how-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
-  <nav>
-    <div class="logo"><span>FamCloud</span><span class="labs">Labs</span></div>
-    <a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a>
+  <nav class="container">
+    <div class="logo">
+      <span class="logo-text">FamCloud</span>
+      <span class="labs">Labs</span>
+    </div>
+    <a class="nav-email" href="mailto:hello@famcloud.ai">hello@famcloud.ai</a>
   </nav>
-  <div class="color-bar"></div>
 
-  <!-- HERO -->
   <section class="hero container">
-    <div class="badge">Early Access</div>
-    <h1>Your AI lives at home,<br><span>not on their servers.</span></h1>
+    <div class="badge"><span class="badge-dot"></span>Early Access</div>
+    <h1>Your AI lives at home,<br><em>not on their <span class="accent">servers</span></em></h1>
     <p>The most valuable data in the next decade will be your interactions with AI. You should own them.</p>
-    <div style="display: flex; gap: 12px; justify-content: center;">
+    <div class="row" style="justify-content:center">
       <a href="mailto:hello@famcloud.ai" class="btn">Get Early Access</a>
-      <a href="#pricing" class="btn-outline">See Pricing</a>
+      <a href="#pricing" class="btn-o">See Pricing</a>
     </div>
   </section>
 
-  <!-- EXAMPLES -->
   <section class="examples container">
-    <div class="section-label">See It in Action</div>
-    <h3 class="section-title">What does FamCloud actually do?</h3>
+    <div class="section-label blue">See It in Action</div>
+    <div class="section-title">What does FamCloud actually do?</div>
     <div class="example-grid">
       <div class="example">
         <div class="label">School</div>
@@ -151,9 +143,8 @@
     </div>
   </section>
 
-  <!-- FEATURES -->
   <section class="features container">
-    <div class="section-label">What You Get</div>
+    <div class="section-label purple">What You Get</div>
     <div class="feature-list">
       <div class="feature-item">Your hardware, your data</div>
       <div class="feature-item">WhatsApp, Telegram, voice, email</div>
@@ -165,9 +156,8 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
   <section class="how container">
-    <div class="section-label">How It Works</div>
+    <div class="section-label blue">How It Works</div>
     <div class="how-grid">
       <div class="how-step">
         <div class="num">Step 1</div>
@@ -187,25 +177,23 @@
     </div>
   </section>
 
-  <!-- DATA ASSET -->
   <section class="data-asset container">
     <div class="data-asset-box">
-      <div class="section-label">Participate in the AI Economy</div>
-      <h3>Your conversations are worth <span>real money.</span></h3>
-      <p>AI companies pay billions for training data. Real family conversations — the kind that actually make AI smarter — can't be scraped from the web.</p>
+      <div class="section-label purple">Participate in the AI Economy</div>
+      <h3>Your conversations are worth <span class="accent">real money.</span></h3>
+      <p>AI companies pay billions for training data. But real family conversations — the kind that actually make AI smarter — can't be scraped from the web.</p>
       <p>Everything your family does with FamCloud stays on your device. When you're ready, opt in and participate in the AI economy: sell anonymized conversational data to the companies building AI models. You own it. You get paid.</p>
       <ul>
-        <li>Data grows in value over time — the more you use it, the more it's worth</li>
+        <li>80% of net profits from data sales go to your household</li>
         <li>Opt-in only — you decide when and what to share</li>
         <li>We handle anonymization, licensing, and payouts</li>
       </ul>
     </div>
   </section>
 
-  <!-- PRICING -->
   <section class="pricing container" id="pricing">
-    <div class="section-label">Pricing</div>
-    <h3 class="section-title">One subscription for the whole family.</h3>
+    <div class="section-label blue">Pricing</div>
+    <div class="section-title">One subscription for the whole family.</div>
     <div class="pricing-grid">
       <div class="pricing-card">
         <div class="tag">Free</div>
@@ -218,26 +206,28 @@
           <li>2 family members</li>
           <li>Basic parental controls</li>
         </ul>
-        <a href="mailto:hello@famcloud.ai" class="btn-sm-outline">Start Free</a>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm-o">Start Free</a>
       </div>
       <div class="pricing-card">
         <div class="tag">Basic</div>
         <h3>Basic</h3>
         <div class="price">$30<small>/mo</small></div>
         <div class="setup">$100 one-time setup</div>
+        <div class="payback">~11 mo to pay back hardware</div>
         <ul>
           <li>iMessage, WhatsApp, Telegram</li>
           <li>Local memory + search</li>
           <li>4 family members</li>
           <li>Self-serve onboarding</li>
         </ul>
-        <a href="mailto:hello@famcloud.ai" class="btn-sm-outline">Get Started</a>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm-o">Get Started</a>
       </div>
       <div class="pricing-card highlight">
         <div class="tag">Pro</div>
         <h3>Pro</h3>
         <div class="price">$50<small>/mo</small></div>
         <div class="setup">$150 one-time setup</div>
+        <div class="payback">~5 mo to pay back hardware</div>
         <ul>
           <li>Everything in Basic</li>
           <li>Voice assistant (Pipecat)</li>
@@ -249,12 +239,13 @@
         <a href="mailto:hello@famcloud.ai" class="btn-sm">Get Started</a>
       </div>
     </div>
-    <div class="pricing-grid" style="margin-top: 16px; grid-template-columns: repeat(2, 1fr);">
+    <div class="pricing-grid" style="margin-top: 12px; grid-template-columns: repeat(2, 1fr); max-width: 620px;">
       <div class="pricing-card">
         <div class="tag">Premium</div>
         <h3>Premium</h3>
         <div class="price">$75<small>/mo</small></div>
         <div class="setup">$275 one-time setup</div>
+        <div class="payback">~2 mo to pay back hardware</div>
         <ul>
           <li>Everything in Pro</li>
           <li>Priority support (live, 24hr)</li>
@@ -269,29 +260,28 @@
         <h3>Lease</h3>
         <div class="price">$65<small>/mo</small></div>
         <div class="setup">$0 upfront</div>
+        <div class="payback">$0 to start — we own the hardware</div>
         <ul>
           <li>Everything in Pro</li>
           <li>We own the hardware</li>
           <li>12-month minimum, then return or buy out</li>
           <li>Zero risk</li>
         </ul>
-        <a href="mailto:hello@famcloud.ai" class="btn-sm-outline">Get Started</a>
+        <a href="mailto:hello@famcloud.ai" class="btn-sm-o">Get Started</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="bottom-cta container">
     <div class="cta-box">
-      <h2>Private AI for your <span>whole family.</span></h2>
+      <h2>Private AI for your <span class="accent">whole family.</span></h2>
       <p>Say hi — we'd love to hear from you.</p>
       <a href="mailto:hello@famcloud.ai" class="btn">hello@famcloud.ai</a>
     </div>
   </section>
 
   <footer>
-    <div class="container"><p>© 2026 FamCloud Labs. All rights reserved.</p>
-    <p><a href="mailto:hello@famcloud.ai">hello@famcloud.ai</a></p></div>
+    <div class="container"><p>© 2026 FamCloud Labs. All rights reserved.</p></div>
   </footer>
 </body>
 </html>
